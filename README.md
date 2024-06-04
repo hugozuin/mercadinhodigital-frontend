@@ -2,7 +2,12 @@
  Repositório destinado ao trabalho avaliativo de front-end
 
 ## To-do
-1. Cliente
-   [] Catálogo
-   []
-3. ADM
+- [ ]  Catálogo detalhado
+- [ ]  Adição dos itens do catálogo ao carrinho
+- [ ]  Remoção do carrinho
+- [ ]  Carrinho atualiza sozinho
+
+### Adm sistema
+
+- [ ]  Login
+- [ ]
