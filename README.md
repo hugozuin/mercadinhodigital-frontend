@@ -1,2 +1,8 @@
 # mercadinhodigital-frontend
- Repositório destinado ao trabalhi avaliativo de front-end
+ Repositório destinado ao trabalho avaliativo de front-end
+
+## To-do
+1. Cliente
+   [] Catálogo
+   []
+3. ADM
