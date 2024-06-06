@@ -35,7 +35,7 @@
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
@@ -87,21 +87,49 @@
         <header>
             <h1>Entrar</h1>
         </header>
-        <form>
+        <form id="loginForm">
             <label for="usuario">Nome de Usuário</label>
-            <input type="text" placeholder="Nome de Usuário" required>
+            <input type="text" id="usuario" placeholder="Seu nome" required>
             
             <label for="senha">Senha</label>
-            <input type="password" placeholder="Senha" required>
+            <input type="password" id="senha" placeholder="Senha" required>
             <label>
-                <input type="checkbox"> Lembrar-me
+                <input type="checkbox" id="lembrarMe"> Lembrar-me
             </label>
             <button type="submit">Entrar</button>
             <a href="#">Esqueceu a senha?</a>
         </form>
     </main>
     <script>
-        
+        // Função para armazenar dados no Local Storage
+        function armazenarDados() {
+            const usuarioPadrao = "usuario";
+            const senhaPadrao = "senha123";
+            localStorage.setItem("usuario", usuarioPadrao);
+            localStorage.setItem("senha", senhaPadrao);
+        }
+
+        // Função para verificar login
+        function verificarLogin(event) {
+            event.preventDefault();
+            
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+            const usuarioArmazenado = localStorage.getItem("usuario");
+            const senhaArmazenada = localStorage.getItem("senha");
+
+            if (usuario === usuarioArmazenado && senha === senhaArmazenada) {
+                window.location.href = ".";
+            } else {
+                alert("Nome de usuário ou senha incorretos!");
+            }
+        }
+
+        // Armazena os dados ao carregar a página
+        window.onload = armazenarDados;
+
+        // Adiciona o evento de submit ao formulário
+        document.getElementById("loginForm").addEventListener("submit", verificarLogin);
     </script>
 </body>
 </html>
