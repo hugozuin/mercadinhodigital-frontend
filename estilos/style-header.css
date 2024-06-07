@@ -62,7 +62,7 @@ header {
 }
 
 #carrinho {
-    width: 30px; /* Ajuste o tamanho da imagem do carrinho */
+    width: 30px;
     margin-right: 10px;
 }
 
@@ -178,11 +178,6 @@ abbr {
     margin: 5px 0;
     font-size: 14px;
     color: #555;
-}
-
-
-.produto-item button:hover {
-    background-color: #cc0000;
 }
 
 .menu-carrinho-footer {
