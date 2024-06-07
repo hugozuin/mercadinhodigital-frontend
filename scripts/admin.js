@@ -6,6 +6,7 @@ document.getElementById('formulario-produto').addEventListener('submit', functio
     const precoProduto = document.getElementById('preco-produto').value;
     const imagemProduto = document.getElementById('imagem-produto').value;
     const categoriaProduto = document.getElementById('categoria-produto').value;
+    const indexProduto = document.getElementById('index-produto').value;
 
     const produto = {
         nome: nomeProduto,
@@ -16,11 +17,20 @@ document.getElementById('formulario-produto').addEventListener('submit', functio
     };
 
     let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-    produtos.push(produto);
+
+    if (indexProduto) {
+        // Editar produto existente
+        produtos[parseInt(indexProduto)] = produto;
+    } else {
+        // Adicionar novo produto
+        produtos.push(produto);
+    }
+
     localStorage.setItem('produtos', JSON.stringify(produtos));
 
     exibirProdutos();
     this.reset();
+    document.getElementById('index-produto').value = ''; // Limpar índice após edição
 });
 
 function exibirProdutos() {
@@ -33,28 +43,39 @@ function exibirProdutos() {
         const produtoItem = document.createElement('div');
         produtoItem.className = 'produto-item';
         produtoItem.innerHTML = `
-            <img src="${produto.imagem}" alt="${produto.nome}">
-            <div class="produto-detalhes">
+            <img src="${produto.imagem}" alt="${produto.nome}" width="50">
+            <div>
                 <h3>${produto.nome}</h3>
                 <p>${produto.descricao}</p>
                 <p>R$ ${produto.preco}</p>
                 <p>Categoria: ${produto.categoria}</p>
             </div>
-            <div class="produto-acoes">
-                <button class="editar-produto" data-index="${index}">Editar</button>
-                <button class="remover-produto" data-index="${index}">Remover</button>
-            </div>
+            <button class="editar-produto" data-index="${index}">Editar</button>
+            <button class="remover-produto" data-index="${index}">Remover</button>
         `;
         listaProdutos.appendChild(produtoItem);
     });
 
-    document.querySelectorAll('.remover-produto').forEach(button => {
-        button.addEventListener('click', removerProduto);
-    });
-
+    // Adiciona evento de clique aos botões de edição e remoção
     document.querySelectorAll('.editar-produto').forEach(button => {
         button.addEventListener('click', editarProduto);
     });
+    document.querySelectorAll('.remover-produto').forEach(button => {
+        button.addEventListener('click', removerProduto);
+    });
+}
+
+function editarProduto(event) {
+    const index = event.target.getAttribute('data-index');
+    let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    const produto = produtos[parseInt(index)];
+
+    document.getElementById('nome-produto').value = produto.nome;
+    document.getElementById('descricao-produto').value = produto.descricao;
+    document.getElementById('preco-produto').value = produto.preco;
+    document.getElementById('imagem-produto').value = produto.imagem;
+    document.getElementById('categoria-produto').value = produto.categoria;
+    document.getElementById('index-produto').value = index;
 }
 
 function removerProduto(event) {
@@ -66,22 +87,9 @@ function removerProduto(event) {
     exibirProdutos();
 }
 
-function editarProduto(event) {
-    const index = event.target.getAttribute('data-index');
-    let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-    const produto = produtos[index];
-
-    document.getElementById('nome-produto').value = produto.nome;
-    document.getElementById('descricao-produto').value = produto.descricao;
-    document.getElementById('preco-produto').value = produto.preco;
-    document.getElementById('imagem-produto').value = produto.imagem;
-    document.getElementById('categoria-produto').value = produto.categoria;
-    document.getElementById('index-produto').value = index;
-}
-
-document.addEventListener('DOMContentLoaded', exibirProdutos);
-
 document.getElementById('limpar-produtos').addEventListener('click', function() {
     localStorage.removeItem('produtos');
     exibirProdutos();
 });
+
+document.addEventListener('DOMContentLoaded', exibirProdutos);
