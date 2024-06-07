@@ -122,3 +122,57 @@ button:hover {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
+/* Adicione o estilo para o botão de remoção */
+.remover-produto {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.remover-produto:hover {
+    background-color: #cc0000;
+}
+
+/* Adicione o estilo para os botões de edição e remoção */
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2f2f2f;
+}
+
+.editar-produto {
+    background-color: #007bff;
+    margin-top: 10px;
+}
+
+.editar-produto:hover {
+    background-color: #0056b3;
+}
+
+.remover-produto {
+    background-color: #ff0000;
+    margin-top: 10px;
+}
+
+.remover-produto:hover {
+    background-color: #cc0000;
+}
