@@ -23,7 +23,10 @@
             <p>O que procura hoje?</p>
         </div>
 
-        <a href="carrinho.html"><img src="imgs/carrinho.png" alt="Carrinho de compra" id="carrinho"></a> <!--Colocar contador-->
+        <a href="#" id="carrinho-link">
+            <img src="imgs/carrinho.png" alt="Carrinho de compra" id="carrinho">
+            <span id="contador-carrinho">0</span>
+        </a>
 
         <a href="pageAdm/login.html" id="login">
             <abbr title="Login necessário apenas para administradores">Entrar</abbr>
@@ -53,16 +56,38 @@
 
     <main>
         <h2>Mais vendidos em Mercado</h2>
-        <div class="produtos-container mercado">
-            <!-- Os produtos de mercado serão adicionados dinamicamente aqui -->
+        <div class="produtos-wrapper">
+            <button class="scroll-btn left">&lt;</button>
+            <div class="produtos-container mercado">
+                <!-- Os produtos de mercado serão adicionados dinamicamente aqui -->
+            </div>
+            <button class="scroll-btn right">&gt;</button>
         </div>
     
         <h2>Mais vendidos em Farmácia</h2>
-        <div class="produtos-container farmacia">
-            <!-- Os produtos de farmácia serão adicionados dinamicamente aqui -->
+        <div class="produtos-wrapper">
+            <button class="scroll-btn left">&lt;</button>
+            <div class="produtos-container farmacia">
+                <!-- Os produtos de farmácia serão adicionados dinamicamente aqui -->
+            </div>
+            <button class="scroll-btn right">&gt;</button>
         </div>
     </main>
-  
+
+    <!-- Menu Lateral do Carrinho -->
+    <div id="menu-carrinho" class="menu-carrinho">
+        <div class="menu-carrinho-header">
+            <span id="fechar-carrinho">&times;</span>
+            <h2>Carrinho de Compras</h2>
+        </div>
+        <div class="menu-carrinho-corpo" id="carrinho-itens">
+            <!-- Produtos do carrinho serão adicionados aqui -->
+        </div>
+        <div class="menu-carrinho-footer">
+            <button id="finalizar-compra">Finalizar Compra</button>
+        </div>
+    </div>
+    
     <script src="./scripts/script-index.js"></script>
 </body>
 </html>

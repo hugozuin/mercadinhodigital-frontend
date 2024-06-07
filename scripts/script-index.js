@@ -34,7 +34,7 @@ document.querySelectorAll('.indicador').forEach((indicador, indice) => {
     });
 });
 
-//---------------------------------------
+//---------------PRODUTOS----------------------
 
 function exibirProdutos() {
     const containerMercado = document.querySelector('.produtos-container.mercado');
@@ -56,6 +56,7 @@ function exibirProdutos() {
             <h3>${produto.nome}</h3>
             <p>${produto.descricao}</p>
             <h4>R$ ${produto.preco}</h4>
+            <button class="adicionar-carrinho">Adicionar ao Carrinho</button>
         `;
 
         if (produto.categoria === 'mercado') {
@@ -64,6 +65,97 @@ function exibirProdutos() {
             containerFarmacia.appendChild(elementoProduto);
         }
     });
+
+    document.querySelectorAll('.adicionar-carrinho').forEach(button => {
+        button.addEventListener('click', adicionarAoCarrinho);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', exibirProdutos);
+
+//------------------CARRINHO-----------------------
+document.getElementById('carrinho-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('menu-carrinho').style.width = '300px';
+});
+
+document.getElementById('fechar-carrinho').addEventListener('click', function() {
+    document.getElementById('menu-carrinho').style.width = '0';
+});
+
+function adicionarAoCarrinho(event) {
+    const produtoElemento = event.target.closest('.produto');
+    const produto = {
+        imagem: produtoElemento.querySelector('img').src,
+        nome: produtoElemento.querySelector('h3').innerText,
+        descricao: produtoElemento.querySelector('p').innerText,
+        preco: produtoElemento.querySelector('h4').innerText,
+    };
+
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const contadorCarrinho = document.getElementById('contador-carrinho');
+    contadorCarrinho.innerText = carrinho.length;
+
+    const carrinhoItens = document.getElementById('carrinho-itens');
+    carrinhoItens.innerHTML = '';
+
+    carrinho.forEach((produto, index) => {
+        const produtoItem = document.createElement('div');
+        produtoItem.className = 'produto-item';
+        produtoItem.innerHTML = `
+            <img src="${produto.imagem}" alt="${produto.nome}" width="50">
+            <div>
+                <h3>${produto.nome}</h3>
+                <p>${produto.descricao}</p>
+                <p>${produto.preco}</p>
+                <button class="remover-item-carrinho" data-index="${index}">Remover</button>
+            </div>
+        `;
+        carrinhoItens.appendChild(produtoItem);
+    });
+
+    // Adiciona evento de clique aos botões de remoção
+    document.querySelectorAll('.remover-item-carrinho').forEach(button => {
+        button.addEventListener('click', removerItemCarrinho);
+    });
+}
+
+function removerItemCarrinho(event) {
+    const index = event.target.getAttribute('data-index');
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.splice(index, 1);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    atualizarCarrinho();
+}
+
+document.getElementById('finalizar-compra').addEventListener('click', function() {
+    alert('Compra finalizada com sucesso!');
+    localStorage.removeItem('carrinho');
+    atualizarCarrinho();
+});
+
+document.addEventListener('DOMContentLoaded', atualizarCarrinho);
+
+//------------------ROLAGEM PRODUTOS-----------------------
+document.querySelectorAll('.scroll-btn.left').forEach(button => {
+    button.addEventListener('click', function() {
+        const container = button.nextElementSibling;
+        container.scrollBy({ left: -200, behavior: 'smooth' });
+    });
+});
+
+document.querySelectorAll('.scroll-btn.right').forEach(button => {
+    button.addEventListener('click', function() {
+        const container = button.previousElementSibling;
+        container.scrollBy({ left: 200, behavior: 'smooth' });
+    });
+});

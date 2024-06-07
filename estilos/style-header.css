@@ -2,69 +2,84 @@
 
 * {
     font-family: "Lato", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-/*--------Header-------*/
-
+/* Header */
 header {
     display: flex;
     align-items: center;
-    background-color: white;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
-    height: 60px;
-    padding: 0 20px; /* Adiciona espaçamento nas laterais */
-    box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.264);
+    box-sizing: border-box;
 }
 
-header > a > img#logo {
+#logo {
     width: 60px;
-    margin-right: 20px; /* Espaçamento entre a logo e a div de busca */
+    margin-right: 20px;
 }
 
-header > .menu-text {
+.menu-text {
     display: flex;
     gap: 30px;
-    margin-right: auto;
+    flex-grow: 1;
+    justify-content: center;
 }
 
-header > .menu-text > p {
+.menu-text p {
     margin: 0;
     font-size: 14px;
 }
 
-header > a > img#carrinho {
-    width: 30px;
-    margin-left: 20px;
-}
-
-header > div#busca {
+#busca {
     display: flex;
     align-items: center;
     background-color: #e0e0e0;
     color: rgb(117, 117, 117);
-    padding: 0 10px; /* Ajusta o padding para centralizar verticalmente */
+    padding: 0 10px;
     border-radius: 8px;
-    height: 35px; /* Aumenta a altura para melhor alinhamento */
-    width: 500px;
+    height: 35px;
+    width: 350px;
+    margin-right: 80px;
 }
 
-header > div#busca > img {
+#busca img {
     width: 20px;
-    margin-right: 10px; /* Espaçamento entre a lupa e o texto */
+    margin-right: 10px;
 }
 
-header > div#busca > p {
+#busca p {
     margin: 0;
     font-size: 15px;
 }
 
-header > a#login {
+#carrinho-link {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+#carrinho {
+    width: 30px; /* Ajuste o tamanho da imagem do carrinho */
+    margin-right: 10px;
+}
+
+#contador-carrinho {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+#login {
+    display: flex;
+    align-items: center;
     background-color: #e0e0e0;
     border: .5px solid rgb(209, 209, 209);
     margin-left: 20px;
@@ -73,12 +88,122 @@ header > a#login {
     height: 35px;
     text-decoration: none;
     color: black;
+    justify-content: center;
 }
 
-header > a#login:hover {
+#login:hover {
     background-color: #c8c8c8;
 }
 
 abbr {
     text-decoration: none;
+}
+
+/* Menu Lateral do Carrinho */
+.menu-carrinho {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: 0.5s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-carrinho-header {
+    padding: 20px;
+    background-color: #e0e0e0;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-carrinho-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.menu-carrinho-header span {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-carrinho-corpo {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.produto-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.produto-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.produto-item div {
+    flex-grow: 1;
+    background-color: #c7c7c7;
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.produto-item h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.produto-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+
+.produto-item button:hover {
+    background-color: #cc0000;
+}
+
+.menu-carrinho-footer {
+    padding: 20px;
+    background-color: #2f2f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#finalizar-compra {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#finalizar-compra:hover {
+    background-color: #218838;
 }
