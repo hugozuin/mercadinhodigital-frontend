@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação do Pedido</title>
+    <link rel="stylesheet" href="../estilos/style-header.css">
+    <link rel="stylesheet" href="estilos/confirmacao.css">
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../imgs/logo-sembg.png" alt="Logo" id="logo"></a>
+
+        <div class="menu-text">
+            <p>MERCADO</p>
+            <p>FARMÁCIA</p>
+        </div>
+
+        <div id="busca">
+            <img src="../imgs/lupa.png" alt="Lupa de busca">
+            <p>O que procura hoje?</p>
+        </div>
+
+        <a href="../carrinho.html"><img src="../imgs/carrinho.png" alt="Carrinho de compra" id="carrinho"></a>
+    </header>
+    <main>
+        <h1>Confirmação do Pedido</h1>
+        <section id="detalhes-pedido">
+            <h2>Detalhes do Pedido</h2>
+            <div id="pedido-itens"></div>
+        </section>
+        <section id="metodo-pagamento">
+            <h2>Método de Pagamento</h2>
+            <form id="form-pagamento">
+                <div>
+                    <input type="radio" id="cartao" name="pagamento" value="cartao" required>
+                    <label for="cartao">Cartão de Crédito</label>
+                </div>
+                <div>
+                    <input type="radio" id="boleto" name="pagamento" value="boleto" required>
+                    <label for="boleto">Boleto Bancário</label>
+                </div>
+                <div>
+                    <input type="radio" id="pix" name="pagamento" value="pix" required>
+                    <label for="pix">Pix</label>
+                </div>
+            </form>
+        </section>
+        <section id="informacoes-entrega">
+            <h2>Informações para Entrega</h2>
+            <form id="form-entrega">
+                <div>
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                <div>
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                </div>
+                <div>
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" required>
+                </div>
+                <button type="submit">Confirmar Pedido</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts/confirmacao.js"></script>
+</body>
+</html>

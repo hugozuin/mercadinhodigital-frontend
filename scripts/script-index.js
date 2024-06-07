@@ -159,3 +159,9 @@ document.querySelectorAll('.scroll-btn.right').forEach(button => {
         container.scrollBy({ left: 200, behavior: 'smooth' });
     });
 });
+
+//-----------CONFIRMAÇÃO------------------------
+document.getElementById('finalizar-compra').addEventListener('click', function() {
+    window.location.href = 'confirmacao.html';
+});
+
