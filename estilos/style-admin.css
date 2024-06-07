@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; /* Certifique-se de que o padding não expanda o header */
+}
+
+#logo {
+    width: 60px;
+    margin-right: 20px; /* Espaçamento entre a logo e a div de busca */
+}
+
+.menu-text {
+    display: flex;
+    gap: 30px;
+    margin-right: auto;
+}
+
+.menu-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#busca {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    color: rgb(117, 117, 117);
+    padding: 0 10px; /* Ajusta o padding para centralizar verticalmente */
+    border-radius: 8px;
+    height: 35px; /* Aumenta a altura para melhor alinhamento */
+    width: 500px;
+}
+
+#busca img {
+    width: 20px;
+    margin-right: 10px; /* Espaçamento entre a lupa e o texto */
+}
+
+#busca p {
+    margin: 0;
+    font-size: 15px;
+}
+
+#carrinho {
+    width: 30px;
+    margin-left: 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2f2f2f;
+}
+
+#lista-produtos {
+    margin-top: 20px;
+}
+
+.produto-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

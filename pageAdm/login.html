@@ -97,7 +97,7 @@
 </head>
 <body>
     <header>
-        <img src="../imgs/logo-sembg.png" alt="Logo" id="logo">
+        <a href="../index.html"><img src="../imgs/logo-sembg.png" alt="Logo" id="logo"></a>
 
         <div class="menu-text">
             <p>ROUPAS</p>
@@ -153,7 +153,7 @@
             const senhaArmazenada = localStorage.getItem("senha");
 
             if (usuario === usuarioArmazenado && senha === senhaArmazenada) {
-                window.location.href = ".";
+                window.location.href = "admin.html";
             } else {
                 alert("Nome de usuário ou senha incorretos!");
             }

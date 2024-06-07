@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercadinho Digital - Catálogo</title>
     <link rel="stylesheet" href="./estilos/style-header.css">
-    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./estilos/carrosel.css">
+    <link rel="stylesheet" href="./estilos/produto.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <img src="imgs/logo-sembg.png" alt="Logo" id="logo">
+        <a href="index.html"><img src="imgs/logo-sembg.png" alt="Logo" id="logo"></a>
 
         <div class="menu-text">
             <p>MERCADO</p>
@@ -27,11 +29,40 @@
             <abbr title="Login necessário apenas para administradores">Entrar</abbr>
         </a>
     </header>
-    <nav>
 
-    </nav>
+    <section class="carrossel-section">
+        <div class="carrossel">
+            <div class="carrossel-interno">
+                <div class="item-carrossel ativo">
+                    <img src="imgs/img1.jpg" alt="Imagem 1">
+                </div>
+                <div class="item-carrossel">
+                    <img src="imgs/img2.jpg" alt="Imagem 2">
+                </div>
+                <div class="item-carrossel">
+                    <img src="imgs/img3.jpg" alt="Imagem 3">
+                </div>
+            </div>
+            <div class="indicadores-carrossel">
+                <span class="indicador ativo" data-slide-to="0"></span>
+                <span class="indicador" data-slide-to="1"></span>
+                <span class="indicador" data-slide-to="2"></span>
+            </div>
+        </div>
+    </section>
+
     <main>
-        
+        <h2>Mais vendidos em Mercado</h2>
+        <div class="produtos-container mercado">
+            <!-- Os produtos de mercado serão adicionados dinamicamente aqui -->
+        </div>
+    
+        <h2>Mais vendidos em Farmácia</h2>
+        <div class="produtos-container farmacia">
+            <!-- Os produtos de farmácia serão adicionados dinamicamente aqui -->
+        </div>
     </main>
+  
+    <script src="./scripts/script-index.js"></script>
 </body>
 </html>
