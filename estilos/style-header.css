@@ -4,12 +4,20 @@
     font-family: "Lato", sans-serif;
 }
 
-/* Header */
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    border: 2px solid rgba(179, 179, 179, 0.486);
+}
+
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -33,6 +41,10 @@ header {
     font-size: 14px;
 }
 
+.menu-text p:hover {
+    cursor: pointer;
+}
+
 #busca {
     display: flex;
     align-items: center;
@@ -45,14 +57,13 @@ header {
     margin-right: 80px;
 }
 
-#busca img {
-    width: 20px;
-    margin-right: 10px;
-}
-
-#busca p {
-    margin: 0;
-    font-size: 15px;
+input#busca{
+    border: 1px, solid gray;
+    background-image: url(https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-5.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 1.3em;
+    padding-left: 22px;
 }
 
 #carrinho-link {
@@ -100,6 +111,17 @@ abbr {
 }
 
 /* Menu Lateral do Carrinho */
+.adicionar-carrinho{
+    background-color: rgb(218, 218, 218);
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.adicionar-carrinho:hover{
+    background-color: rgb(191, 191, 191);
+    cursor: pointer;
+}
+
 .menu-carrinho {
     height: 100%;
     width: 0;
@@ -160,7 +182,7 @@ abbr {
 
 .produto-item div {
     flex-grow: 1;
-    background-color: #c7c7c7;
+    background-color: #efefef;
     padding: 8px;
     border-radius: 5px;
     display: flex;
@@ -178,6 +200,17 @@ abbr {
     margin: 5px 0;
     font-size: 14px;
     color: #555;
+}
+
+button.remover-item-carrinho{
+    background-color: rgba(255, 0, 0, 0.412);
+    border: 1.3px solid rgba(128, 128, 128, 0.634);
+    border-radius: 4px;
+}
+
+button.remover-item-carrinho:hover{
+    background-color: rgba(255, 0, 0, 0.549);
+    cursor: pointer;
 }
 
 .menu-carrinho-footer {

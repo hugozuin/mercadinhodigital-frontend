@@ -13,12 +13,16 @@ header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
-    box-sizing: border-box; /* Certifique-se de que o padding não expanda o header */
+    box-sizing: border-box;
+}
+
+div#busca{
+    margin-right: 180px; 
 }
 
 #logo {
     width: 60px;
-    margin-right: 20px; /* Espaçamento entre a logo e a div de busca */
+    margin-right: 20px; 
 }
 
 .menu-text {
@@ -37,15 +41,15 @@ header {
     align-items: center;
     background-color: #e0e0e0;
     color: rgb(117, 117, 117);
-    padding: 0 10px; /* Ajusta o padding para centralizar verticalmente */
+    padding: 0 10px;
     border-radius: 8px;
-    height: 35px; /* Aumenta a altura para melhor alinhamento */
+    height: 35px;
     width: 500px;
 }
 
 #busca img {
     width: 20px;
-    margin-right: 10px; /* Espaçamento entre a lupa e o texto */
+    margin-right: 10px;
 }
 
 #busca p {
@@ -129,7 +133,7 @@ button:hover {
     width: 50px;
     margin-right: 10px;
 }
-/* Adicione o estilo para os botões de edição e remoção */
+
 button {
     display: block;
     width: 100%;

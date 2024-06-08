@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0; /* Espaço acima e abaixo do carrossel */
+    margin: 20px 0;
 }
 
 .carrossel {
