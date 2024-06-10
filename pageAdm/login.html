@@ -52,9 +52,8 @@
         input[type="text"]:focus, input[type="password"]:focus {
             border-color: #00907d;
             outline: none;
-}
+        }
 
-        /* Estilo do botão */
         button[type="submit"] {
             width: 100%;
             padding: 10px;
@@ -70,7 +69,6 @@
             background-color: #2f2f2f;
         }
 
-        /* Estilo do checkbox e do link */
         label {
             display: flex;
             align-items: center;
@@ -105,7 +103,6 @@
         </div>
 
         <input type="text" id="busca" placeholder="O que procura hoje?">
-
     </header>
 
     <div class="container">
@@ -127,34 +124,21 @@
         </main>
     </div>
     <script>
-        // Função para armazenar dados no Local Storage
-        function armazenarDados() {
-            const usuarioPadrao = "usuario";
-            const senhaPadrao = "senha123";
-            localStorage.setItem("usuario", usuarioPadrao);
-            localStorage.setItem("senha", senhaPadrao);
-        }
-
-        // Função para verificar login
         function verificarLogin(event) {
             event.preventDefault();
             
             const usuario = document.getElementById("usuario").value;
             const senha = document.getElementById("senha").value;
-            const usuarioArmazenado = localStorage.getItem("usuario");
-            const senhaArmazenada = localStorage.getItem("senha");
+            const usuarioPadrao = "usuario";
+            const senhaPadrao = "senha123";
 
-            if (usuario === usuarioArmazenado && senha === senhaArmazenada) {
+            if (usuario === usuarioPadrao && senha === senhaPadrao) {
                 window.location.href = "admin.html";
             } else {
                 alert("Nome de usuário ou senha incorretos!");
             }
         }
 
-        // Armazena os dados ao carregar a página
-        window.onload = armazenarDados;
-
-        // Adiciona o evento de submit ao formulário
         document.getElementById("loginForm").addEventListener("submit", verificarLogin);
     </script>
 </body>
