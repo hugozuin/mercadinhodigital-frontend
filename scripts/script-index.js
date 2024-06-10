@@ -6,7 +6,7 @@ function moverCarrossel(direcao) {
     const totalItens = itens.length;
 
     indiceAtual = (indiceAtual + direcao + totalItens) % totalItens;
-    const deslocamento = -indiceAtual * 100; // Calcula o deslocamento em porcentagem
+    const deslocamento = -indiceAtual * 100;
     document.querySelector('.carrossel-interno').style.transform = `translateX(${deslocamento}%)`;
 
     atualizarIndicadores();
@@ -41,11 +41,10 @@ function exibirProdutos() {
 
     let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
 
-    // Debug: Verificar o conteúdo dos produtos
     console.log('Produtos carregados:', produtos);
 
-    containerMercado.innerHTML = ''; // Limpa o conteúdo atual
-    containerFarmacia.innerHTML = ''; // Limpa o conteúdo atual
+    containerMercado.innerHTML = '';
+    containerFarmacia.innerHTML = '';
 
     produtos.forEach(produto => {
         const elementoProduto = document.createElement('div');
