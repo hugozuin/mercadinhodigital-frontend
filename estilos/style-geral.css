@@ -235,3 +235,8 @@ button.remover-item-carrinho:hover{
 #finalizar-compra:hover {
     background-color: #218838;
 }
+
+#total-carrinho{
+    color: white;
+    margin-left: 15px;
+}

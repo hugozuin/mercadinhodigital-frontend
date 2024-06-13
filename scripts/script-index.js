@@ -87,7 +87,7 @@ function adicionarAoCarrinho(event) {
         imagem: produtoElemento.querySelector('img').src,
         nome: produtoElemento.querySelector('h3').innerText,
         descricao: produtoElemento.querySelector('p').innerText,
-        preco: produtoElemento.querySelector('h4').innerText,
+        preco: parseFloat(produtoElemento.querySelector('h4').innerText.replace('R$', '').replace(',', '.'))
     };
 
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
@@ -105,7 +105,10 @@ function atualizarCarrinho() {
     const carrinhoItens = document.getElementById('carrinho-itens');
     carrinhoItens.innerHTML = '';
 
+    let total = 0;
+
     carrinho.forEach((produto, index) => {
+        total += produto.preco;
         const produtoItem = document.createElement('div');
         produtoItem.className = 'produto-item';
         produtoItem.innerHTML = `
@@ -113,12 +116,15 @@ function atualizarCarrinho() {
             <div>
                 <h3>${produto.nome}</h3>
                 <p>${produto.descricao}</p>
-                <p>${produto.preco}</p>
+                <p>R$ ${produto.preco.toFixed(2)}</p>
                 <button class="remover-item-carrinho" data-index="${index}">Remover</button>
             </div>
         `;
         carrinhoItens.appendChild(produtoItem);
     });
+
+    // Atualiza o total no carrinho
+    document.getElementById('total-carrinho').innerText = `Total: R$ ${total.toFixed(2)}`;
 
     // Adiciona evento de clique aos botões de remoção
     document.querySelectorAll('.remover-item-carrinho').forEach(button => {
